@@ -1,8 +1,6 @@
 # list of flags
-#   list locations
-#   location
 #   list rivers
-#   river
+#   set a location
 #   create text file
 #   create mp3 
 #   upload to s3
@@ -11,13 +9,15 @@
 
 from argparse import Action, ArgumentParser
 
-def create_parser():
-    parser = ArgumentParser()
+def parser():
+    parser = ArgumentParser(allow_abbrev=False, description='Get fly fishing river reports in Southwest Montana')
+    parser.add_argument('-p', '--profile',
+        type=str,
+        required=True,
+        help="sets aws profile - aws configure list-profiles")
     parser.add_argument('-l',  '--list',
-            help="List of locations")
+        help="List of rivers")
     parser.add_argument('-L', '--location',
-            help="Set location",
-            required=True)
-    parser.add_argument()
+        help="Set location")
 
     return parser
