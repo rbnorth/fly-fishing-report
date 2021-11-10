@@ -13,11 +13,12 @@ def parser():
     parser = ArgumentParser(allow_abbrev=False, description='Get fly fishing river reports in Southwest Montana')
     parser.add_argument('-p', '--profile',
         type=str,
-        required=True,
+        #required=True,
         help="sets aws profile - aws configure list-profiles")
     parser.add_argument('-l',  '--list',
-        help="List of rivers")
+        action='store_true',
+        help="List of SW Montana rivers")
     parser.add_argument('-L', '--location',
-        help="Set location")
+        help="Set river location")
 
     return parser
